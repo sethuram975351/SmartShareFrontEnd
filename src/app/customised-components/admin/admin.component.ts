@@ -46,10 +46,10 @@ export class AdminComponent implements OnInit, OnChanges {
   deleteButtonShow = false;
   margin: any;
   private dataSourceFilter: string;
-  private pendingCount = 0;
-  private acceptedCount = 0;
-  private rejectedCount = 0;
-  private totalCount = 0;
+  pendingCount = 0;
+  acceptedCount = 0;
+  rejectedCount = 0;
+  totalCount = 0;
 
   constructor(private route: ActivatedRoute, private toastr: ToastrService) {
     this.dataSource.paginator = this.paginator;

@@ -31,19 +31,19 @@ export class FileExplorerComponent implements OnInit {
 
   bucketObjects;
   private selectedBucket: string;
-  private uploadPanelOpenState = false;
-  private fileManagerPanelOpenState = true;
-  private lastModified: Date;
-  private ownerName: string;
-  private selectedFileOrFolder;
+  uploadPanelOpenState = false;
+  fileManagerPanelOpenState = true;
+  lastModified: Date;
+  ownerName: string;
+  selectedFileOrFolder;
   filesToBeDownloaded = [];
   private filesToBeUploaded: File[] = [];
   uploadFolderBoxTitle = 'Choose Folder';
   disableTextBox = true;
-  private readChecked = false;
-  private writeChecked = false;
-  private deleteChecked = false;
-  private selectedFileOrFolderNode;
+  readChecked = false;
+  writeChecked = false;
+  deleteChecked = false;
+  selectedFileOrFolderNode;
   private filesToBeUploadedWithMetadata: Array<UploadObject> = [];
 
 

@@ -3,6 +3,7 @@ import {HttpClient, HttpHeaders, HttpParams} from '@angular/common/http';
 import {tap} from 'rxjs/operators';
 import {Observable, Subscription} from 'rxjs';
 import * as FileSaver from 'file-saver';
+import {environment} from '../../../environments/environment';
 
 
 @Injectable({
@@ -19,7 +20,7 @@ export class FileServerService {
   }
 
   getBucketList(userId) {
-    const getBucketListUrl = 'http://localhost:8081/coreserver/buckets';
+    const getBucketListUrl = environment.gatewayUrl + '/coreserver/buckets';
     const params = new HttpParams()
       .set('userId', userId);
     return this.httpService.get(getBucketListUrl, {params});
@@ -27,7 +28,7 @@ export class FileServerService {
 
   createBucket(body): Observable<any> {
 
-    const createBucketUrl = 'http://localhost:8081/coreserver/bucket';
+    const createBucketUrl = environment.gatewayUrl + '/coreserver/bucket';
     return this.httpService.post<any>(createBucketUrl, body, this.httpOptions)
       .pipe(
         tap(data => {
@@ -37,14 +38,14 @@ export class FileServerService {
   }
 
   deleteBucket(bucketName) {
-    const deleteBucketUrl = 'http://localhost:8081/coreserver/bucket';
+    const deleteBucketUrl = environment.gatewayUrl + '/coreserver/bucket';
     const params = new HttpParams()
       .set('bucketName', bucketName);
     return this.httpService.delete(deleteBucketUrl, {params});
   }
 
   getBucketObjects(userId, bucketName) {
-    const getBucketListUrl = 'http://localhost:8081/coreserver/objects';
+    const getBucketListUrl = environment.gatewayUrl + '/coreserver/objects';
     const params = new HttpParams()
       .set('userId', userId)
       .set('bucketName', bucketName);
@@ -53,7 +54,7 @@ export class FileServerService {
 
   downloadFile(fileName, objectName, bucketName): Subscription {
 
-    const downloadFileUrl = 'http://localhost:8081/coreserver/file/download';
+    const downloadFileUrl = environment.gatewayUrl + '/coreserver/file/download';
     const params = new HttpParams()
       .set('fileName', fileName)
       .set('objectName', objectName)
@@ -71,13 +72,13 @@ export class FileServerService {
 
   downloadFolder(objectsToDownload): Observable<any> {
 
-    const downloadFolderUrl = 'http://localhost:8081/coreserver/folder/download';
+    const downloadFolderUrl = environment.gatewayUrl + '/coreserver/folder/download';
     return this.httpService.post<any>(downloadFolderUrl, objectsToDownload, this.httpOptions);
   }
 
   uploadFile(body): Observable<any> {
 
-    const uploadUrl = 'http://localhost:8081/coreserver/object';
+    const uploadUrl = environment.gatewayUrl + '/coreserver/object';
     return this.httpService.post<any>(uploadUrl, body, this.httpOptions)
       .pipe(
         tap(data => {
@@ -88,7 +89,7 @@ export class FileServerService {
 
   deleteFile(objectName, bucketName, ownerId): Observable<any> {
 
-    const deleteFileUrl = 'http://localhost:8081/coreserver/file';
+    const deleteFileUrl = environment.gatewayUrl + '/coreserver/file';
     const params = new HttpParams()
       .set('objectName', objectName)
       .set('bucketName', bucketName)
@@ -97,12 +98,12 @@ export class FileServerService {
   }
 
   deleteFolder(deleteObjectsRequest) {
-    const deleteFolderUrl = 'http://localhost:8081/coreserver/folder';
+    const deleteFolderUrl = environment.gatewayUrl + '/coreserver/folder';
     return this.httpService.request('delete', deleteFolderUrl, {body: deleteObjectsRequest});
   }
 
   createNewFolder(body) {
-    const newFolderUrl = 'http://localhost:8081/coreserver/folder/empty';
+    const newFolderUrl = environment.gatewayUrl + '/coreserver/folder/empty';
     return this.httpService.post<any>(newFolderUrl, body, this.httpOptions)
       .pipe(
         tap(data => {

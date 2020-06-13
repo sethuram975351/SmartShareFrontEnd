@@ -3,6 +3,8 @@ import {HttpClient, HttpHeaders, HttpParams} from '@angular/common/http';
 import {tap} from 'rxjs/operators';
 import {UsersMetadata} from '../domain-models/UsersMetadata';
 import {BucketAccessRequestDto} from '../domain-models/BucketAccessRequestDto';
+import {environment} from '../../../environments/environment';
+
 
 @Injectable({
   providedIn: 'root'
@@ -19,7 +21,7 @@ export class AdminServerService {
   }
 
   createAccessRequest(body) {
-    const createAccessRequestUrl = 'http://localhost:8081/administrationserver/object/createAccessRequest';
+    const createAccessRequestUrl = environment.gatewayUrl + '/administrationserver/object/createAccessRequest';
     return this.httpService.post<any>(createAccessRequestUrl, body, this.httpOptions)
       .pipe(
         tap(data => {
@@ -29,7 +31,7 @@ export class AdminServerService {
   }
 
   createBucketAccessRequest(body) {
-    const createAccessRequestUrl = 'http://localhost:8081/administrationserver/bucket/createAccessRequest';
+    const createAccessRequestUrl = environment.gatewayUrl + '/administrationserver/bucket/createAccessRequest';
     return this.httpService.post<any>(createAccessRequestUrl, body, this.httpOptions)
       .pipe(
         tap(data => {
@@ -38,7 +40,7 @@ export class AdminServerService {
   }
 
   approveBucketObjectAccessRequest(body) {
-    const approveAccessRequestUrl = 'http://localhost:8081/administrationserver/object/approveAccessRequest';
+    const approveAccessRequestUrl = environment.gatewayUrl + '/administrationserver/object/approveAccessRequest';
     return this.httpService.put<any>(approveAccessRequestUrl, body, this.httpOptions)
       .pipe(
         tap(data => {
@@ -48,7 +50,7 @@ export class AdminServerService {
   }
 
   rejectBucketObjectAccessRequest(body) {
-    const rejectAccessRequestUrl = 'http://localhost:8081/administrationserver/object/rejectAccessRequest';
+    const rejectAccessRequestUrl = environment.gatewayUrl + '/administrationserver/object/rejectAccessRequest';
     return this.httpService.put<any>(rejectAccessRequestUrl, body, this.httpOptions)
       .pipe(
         tap(data => {
@@ -58,7 +60,7 @@ export class AdminServerService {
   }
 
   deleteBucketObjectAccessRequest(body) {
-    const deleteAccessRequestUrl = 'http://localhost:8081/administrationserver/object/deleteAccessRequest';
+    const deleteAccessRequestUrl = environment.gatewayUrl + '/administrationserver/object/deleteAccessRequest';
     return this.httpService.request('delete', deleteAccessRequestUrl, {body})
       .pipe(
         tap(data => {
@@ -68,17 +70,17 @@ export class AdminServerService {
   }
 
   getUsers() {
-    const getUserListUrl = 'http://localhost:8081/administrationserver/users';
+    const getUserListUrl = environment.gatewayUrl + '/administrationserver/users';
     return this.httpService.get(getUserListUrl);
   }
 
   getUsersWithMetaData() {
-    const getUserMetadataUrl = 'http://localhost:8081/administrationserver/usersMetadata';
+    const getUserMetadataUrl = environment.gatewayUrl + '/administrationserver/usersMetadata';
     return this.httpService.get<UsersMetadata>(getUserMetadataUrl);
   }
 
   makeAdmin(body) {
-    const makeAdminUrl = 'http://localhost:8081/administrationserver/makeAdmin';
+    const makeAdminUrl = environment.gatewayUrl + '/administrationserver/makeAdmin';
     return this.httpService.post(makeAdminUrl, body)
       .pipe(
         tap(data => {
@@ -88,7 +90,7 @@ export class AdminServerService {
   }
 
   addUsers(body) {
-    const addUserUrl = 'http://localhost:8081/administrationserver/bucket/addUser';
+    const addUserUrl = environment.gatewayUrl + '/administrationserver/bucket/addUser';
     return this.httpService.post<boolean>(addUserUrl, body)
       .pipe(
         tap(data => {
@@ -98,7 +100,7 @@ export class AdminServerService {
   }
 
   removeUser(body) {
-    const removeUserUrl = 'http://localhost:8081/administrationserver/bucket/removeUser';
+    const removeUserUrl = environment.gatewayUrl + '/administrationserver/bucket/removeUser';
     return this.httpService.request('delete', removeUserUrl, {body})
       .pipe(
         tap(data => {
@@ -108,14 +110,14 @@ export class AdminServerService {
   }
 
   getBucketObjectAccessRequestsAsUser(userId) {
-    const getBucketObjectAccessRequestsAsUserUrl = 'http://localhost:8081/administrationserver/accessRequestsCreatedByUser';
+    const getBucketObjectAccessRequestsAsUserUrl = environment.gatewayUrl + '/administrationserver/accessRequestsCreatedByUser';
     const params = new HttpParams()
       .set('userId', userId);
     return this.httpService.get<BucketAccessRequestDto>(getBucketObjectAccessRequestsAsUserUrl, {params});
   }
 
   getBucketObjectAccessRequestsAsOwner(ownerId) {
-    const getBucketObjectAccessRequestsAsOwnerUrl = 'http://localhost:8081/administrationserver/accessRequestsOfOwner';
+    const getBucketObjectAccessRequestsAsOwnerUrl = environment.gatewayUrl + '/administrationserver/accessRequestsOfOwner';
     const params = new HttpParams()
       .set('ownerId', ownerId);
     return this.httpService.get<BucketAccessRequestDto>(getBucketObjectAccessRequestsAsOwnerUrl, {params});
@@ -123,13 +125,13 @@ export class AdminServerService {
   }
 
   getBucketAccessRequestsAdmin() {
-    const getBucketAccessRequestsAdminUrl = 'http://localhost:8081/administrationserver/bucket/bucketAccessRequestsForAdmin';
+    const getBucketAccessRequestsAdminUrl = environment.gatewayUrl + '/administrationserver/bucket/bucketAccessRequestsForAdmin';
     return this.httpService.get<BucketAccessRequestDto>(getBucketAccessRequestsAdminUrl);
   }
 
   approveBucketAccessRequestsAdmin(body) {
     console.log(body);
-    const approveBucketAccessRequestsAdminUrl = 'http://localhost:8081/administrationserver/bucket/approveAccessRequest';
+    const approveBucketAccessRequestsAdminUrl = environment.gatewayUrl + '/administrationserver/bucket/approveAccessRequest';
     return this.httpService.post<boolean>(approveBucketAccessRequestsAdminUrl, body)
       .pipe(
         tap(data => {
@@ -140,7 +142,7 @@ export class AdminServerService {
 
   rejectBucketAccessRequestsAdmin(body) {
     console.log(body);
-    const rejectBucketAccessRequestsAdminUrl = 'http://localhost:8081/administrationserver/bucket/rejectAccessRequest';
+    const rejectBucketAccessRequestsAdminUrl = environment.gatewayUrl + '/administrationserver/bucket/rejectAccessRequest';
     return this.httpService.post<boolean>(rejectBucketAccessRequestsAdminUrl, body)
       .pipe(
         tap(data => {
@@ -151,7 +153,7 @@ export class AdminServerService {
 
   deleteBucketAccessRequestsAdmin(body) {
     console.log(body);
-    const deleteBucketAccessRequestsAdminUrl = 'http://localhost:8081/administrationserver/bucket/deleteAccessRequest';
+    const deleteBucketAccessRequestsAdminUrl = environment.gatewayUrl + '/administrationserver/bucket/deleteAccessRequest';
     return this.httpService.request('delete', deleteBucketAccessRequestsAdminUrl, {body})
       .pipe(
         tap(data => {
@@ -161,7 +163,7 @@ export class AdminServerService {
   }
 
   getFilesAccessedByUserInBucket(ownerId, bucketName) {
-    const getFilesAccessesByUserInBucketUrl = 'http://localhost:8081/administrationserver/listOfUsersAccessingOwnersObject';
+    const getFilesAccessesByUserInBucketUrl = environment.gatewayUrl + '/administrationserver/listOfUsersAccessingOwnersObject';
     const params = new HttpParams()
       .set('ownerId', ownerId)
       .set('bucketName', bucketName);
@@ -169,7 +171,7 @@ export class AdminServerService {
   }
 
   getUsersFileAccessedByOthers(userId, bucketName) {
-    const getUsersFileAccessedByOthersUrl = 'http://localhost:8081/administrationserver/userFiles';
+    const getUsersFileAccessedByOthersUrl = environment.gatewayUrl + '/administrationserver/userFiles';
     const params = new HttpParams()
       .set('userId', userId)
       .set('bucketName', bucketName);

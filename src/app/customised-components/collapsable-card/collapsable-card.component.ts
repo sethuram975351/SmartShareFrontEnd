@@ -6,7 +6,7 @@ import {Component, OnInit} from '@angular/core';
   styleUrls: ['./collapsable-card.component.less']
 })
 export class CollapsableCardComponent implements OnInit {
-  private visible: boolean;
+  visible: boolean;
 
   constructor() { }
 

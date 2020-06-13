@@ -9,7 +9,7 @@ import {UsersMetadata} from '../domain-models/UsersMetadata';
 })
 export class UsersListComponent implements OnInit {
 
-  private users: UsersMetadata;
+  users: UsersMetadata;
   // users = [
   //  {
   //   name: 'sethuram reddy',

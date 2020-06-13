@@ -12,12 +12,14 @@ export class SideNavBarComponent implements OnInit {
 
   isLoggedIn = false;
   isAdmin: boolean;
+  auth: Auth0ServiceService;
 
 
   constructor(private router: Router,
-              private auth: Auth0ServiceService,
+              auth: Auth0ServiceService,
               private toaster: ToastrService
   ) {
+    this.auth = auth;
     this.auth.loginChanged.subscribe(value => {
       this.isLoggedIn = value;
       this.auth.registerUser();

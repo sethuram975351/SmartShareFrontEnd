@@ -2,8 +2,15 @@
 // `ng build --prod` replaces `environment.ts` with `environment.prod.ts`.
 // The list of file replacements can be found in `angular.json`.
 
+
 export const environment = {
-  production: false
+  production: false,
+  // @ts-ignore
+  gatewayUrl: window.env.gatewayUrl || 'default',
+  // @ts-ignore
+  frontendPort: window.env.frontendPort || 'default',
+  // @ts-ignore
+  debug: window.env.debug || false
 };
 
 /*
