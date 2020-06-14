@@ -8,5 +8,5 @@ node {
     sh 'docker image build -t frontend:latest .'
 
     stage 'Run container'
-    sh 'docker run --env GATEWAY_URL="http://localhost:8081" -e FRONTEND_PORT="4200" -p 4200:80 frontend:latest'
+    sh 'docker run -d --env GATEWAY_URL="http://localhost:8081" -e FRONTEND_PORT="4200" -p 4200:80 frontend:latest'
 }
