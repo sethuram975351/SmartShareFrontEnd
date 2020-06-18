@@ -32,7 +32,7 @@ export class Auth0ServiceService {
       authority: Constants.domain,
       client_id: Constants.clientId,
       redirect_uri: `${Constants.clientRoot}signin-callback`,
-      scope: 'openid profile email smartshare-user',
+      scope: 'openid profile email smartshare-user smartshare-admin',
       response_type: 'code',
       automaticSilentRenew: true,
       silent_redirect_uri: `${Constants.clientRoot}assets/silent-callback.html`,
