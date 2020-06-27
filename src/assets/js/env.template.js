@@ -3,6 +3,6 @@
 
   // Environment variables
   window["env"]["gatewayUrl"] = "${GATEWAY_URL}";
-  window["env"]["frontendPort"] = "${FRONTEND_PORT}";
+  window["env"]["oauthUrl"] = "${OAUTH_URL}";
   window["env"]["debug"] = "${DEBUG}";
 })(this);

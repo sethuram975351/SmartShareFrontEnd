@@ -28,6 +28,7 @@ export class Auth0ServiceService {
   private defaultAdmin: boolean;
 
   constructor(private authService: AuthenticationService) {
+    console.log('client root----->', Constants.clientRoot);
     const auth0Settings = {
       authority: Constants.domain,
       client_id: Constants.clientId,

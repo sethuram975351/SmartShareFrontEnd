@@ -8,7 +8,7 @@ export const environment = {
   // @ts-ignore
   gatewayUrl: window.env.gatewayUrl || 'default',
   // @ts-ignore
-  frontendPort: window.env.frontendPort || 'default',
+  oauthUrl: window.env.oauthUrl || 'http://localhost:4200',
   // @ts-ignore
   debug: window.env.debug || false
 };
