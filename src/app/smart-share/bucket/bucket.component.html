@@ -17,18 +17,18 @@
           <div class="col-6">
             <button *ngIf="perspective === 'admin'" [routerLink]="['/dashboard/addUsers',{bucketName: bucket.name}]"
                     color="primary" mat-raised-button>Manage Users &nbsp;
-              <fa-icon [icon]="['fas', 'users']"></fa-icon>
+              <fa-icon [icon]="faUsers"></fa-icon>
             </button>
           </div>
           <div class="col-4">
             <button (click)="deleteBucket()" *ngIf="perspective === 'admin'" color="warn" mat-raised-button>Delete
               &nbsp;
-              <fa-icon [icon]="['fas', 'trash-alt']"></fa-icon>
+              <fa-icon [icon]="faTrashAlt"></fa-icon>
             </button>
             <button *ngIf="perspective !== 'admin' && readChecked"
                     [routerLink]="['/dashboard/explorer',{bucketName: bucket.name}]"
                     color="warn" mat-raised-button>View &nbsp;
-              <fa-icon [icon]="['fas', 'eye']" class="pull-right"></fa-icon>
+              <fa-icon [icon]="faEye" class="pull-right"></fa-icon>
             </button>
 
           </div>

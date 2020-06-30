@@ -6,6 +6,7 @@ import {Auth0ServiceService} from '../../authentication/auth0/auth0-service.serv
 import {AdminServerService} from '../service/admin-server.service';
 import {ToastrService} from 'ngx-toastr';
 import {UserBucketMapping} from '../domain-models/UserBucketMapping';
+import {faUser} from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-add-users',
@@ -14,6 +15,7 @@ import {UserBucketMapping} from '../domain-models/UserBucketMapping';
 })
 export class AddUsersComponent implements OnInit {
 
+  faUser = faUser;
   selectedBucket: string;
   users;
   buckets;

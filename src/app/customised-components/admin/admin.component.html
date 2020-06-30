@@ -6,7 +6,7 @@
           <div class="row">
             <div class="col-6">
               <div class="card-icon-accepted text-center">
-                <fa-icon [icon]="['fas', 'check']" class="icon"></fa-icon>
+                <fa-icon [icon]="faCheck" class="icon"></fa-icon>
               </div>
             </div>
             <div (click)="applyFilter('Approved')" class="col-6 pointer-icon">
@@ -28,7 +28,7 @@
           <div class="row">
             <div class="col-6">
               <div class="card-icon-rejected text-center">
-                <fa-icon [icon]="['fas', 'times']" class="icon"></fa-icon>
+                <fa-icon [icon]="faTimes" class="icon"></fa-icon>
               </div>
             </div>
             <div (click)="applyFilter('Rejected')" class="col-6 pointer-icon">
@@ -50,7 +50,7 @@
           <div class="row">
             <div class="col-6">
               <div class="card-icon-pending text-center">
-                <fa-icon [icon]="['fas', 'exclamation']" class="icon"></fa-icon>
+                <fa-icon [icon]="faExclamation" class="icon"></fa-icon>
               </div>
             </div>
             <div (click)="applyFilter('In Progress')" class="col-6 pointer-icon">
@@ -72,7 +72,7 @@
           <div class="row">
             <div class="col-6">
               <div class="card-icon-total text-center">
-                <fa-icon [icon]="['fas', 'tenge']" class="icon"></fa-icon>
+                <fa-icon [icon]="faTenge" class="icon"></fa-icon>
               </div>
             </div>
             <div (click)="applyFilter('total')" class="col-6 pointer-icon">
@@ -128,13 +128,13 @@
                   <div class="col-6">
                     <button (click)="acceptRequest(row)" color="primary" mat-mini-fab
                             matTooltip="accept selected request">
-                      <fa-icon [icon]="['fas', 'check']"></fa-icon>
+                      <fa-icon [icon]="faCheck"></fa-icon>
                     </button>
                   </div>
                   <div class="col-6">
                     <button (click)="rejectRequest(row)" color="warn" mat-mini-fab
                             matTooltip="reject selected requests">
-                      <fa-icon [icon]="['fas', 'times']"></fa-icon>
+                      <fa-icon [icon]="faTimes"></fa-icon>
                     </button>
                   </div>
                 </div>
@@ -157,8 +157,8 @@
                     </mat-checkbox>
                   </div>
                   <div class="col-0.5">
-                    <fa-icon *ngIf="group.expanded" [icon]="['fas', 'chevron-down']" class="pl-3"></fa-icon>
-                    <fa-icon *ngIf="!group.expanded" [icon]="['fas', 'chevron-right']" class="pl-3"></fa-icon>
+                    <fa-icon *ngIf="group.expanded" [icon]="faChevronDown" class="pl-3"></fa-icon>
+                    <fa-icon *ngIf="!group.expanded" [icon]="faChevronRight" class="pl-3"></fa-icon>
                   </div>
                   <div class="col">
                     <button color="warn" mat-stroked-button>{{groupByColumns[group.level - 1] | titlecase}}:</button>
@@ -188,13 +188,13 @@
             <div *ngIf="rejectButtonShow" class="col-1 m-3">
               <button (click)="emitSelectedRows('reject')" color="warn" mat-raised-button
                       matTooltip="reject selected requests">Reject &nbsp;
-                <fa-icon [icon]="['fas', 'times']"></fa-icon>
+                <fa-icon [icon]="faTimes"></fa-icon>
               </button>
             </div>
             <div *ngIf="deleteButtonShow" class="col-2">
               <button (click)="emitSelectedRows('delete')" color="accent" mat-raised-button
                       matTooltip="delete selected requests">
-                Delete &nbsp;<fa-icon [icon]="['fas', 'trash-alt']"></fa-icon>
+                Delete &nbsp;<fa-icon [icon]="faTrashAlt"></fa-icon>
               </button>
             </div>
             <div class="col">

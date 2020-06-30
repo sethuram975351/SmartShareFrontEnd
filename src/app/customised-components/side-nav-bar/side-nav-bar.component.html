@@ -3,37 +3,39 @@
     <ul class="nav sidebar-nav">
       <li class="sidebar-brand">
         <div class="container custom-padding">
-          <h3 class="brand-name"><fa-icon [icon]="['fas', 'burn']" class="icon"></fa-icon> &nbsp;Smart Share</h3>
+          <h3 class="brand-name">
+            <fa-icon [icon]="faFire" class="icon"></fa-icon> &nbsp;Smart Share
+          </h3>
         </div>
       </li>
       <li class="sidebar-navigation">Navigation</li>
       <li *ngIf="isLoggedIn">
         <a [routerLink]="['buckets']" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}">
-          <fa-icon [icon]="['fab', 'bitbucket']" class="icon"></fa-icon> &nbsp;Buckets</a>
+          <fa-icon [icon]="faBitbucket" class="icon"></fa-icon> &nbsp;Buckets</a>
       </li>
       <li *ngIf="isLoggedIn && (isAdmin || this.auth.isDefaultAdmin())">
         <a [routerLink]="['users']" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}">
-          <fa-icon [icon]="['fas', 'users']" class="icon"></fa-icon> &nbsp;Users</a>
+          <fa-icon [icon]="faUsers" class="icon"></fa-icon> &nbsp;Users</a>
       </li>
       <li *ngIf="isLoggedIn" class="dropdown-custom">
         <a>
-          <fa-icon [icon]="['fas', 'user-cog']" class="icon"></fa-icon> &nbsp;Administration</a>
+          <fa-icon [icon]="faUserCog" class="icon"></fa-icon> &nbsp;Administration</a>
         <ul class="show" id="menu">
           <li *ngIf="isAdmin"><a [routerLink]="['/dashboard/administration/bucket']" routerLinkActive="active">
-            <fa-icon [icon]="['fab', 'bitbucket']" class="icon"></fa-icon>
+            <fa-icon [icon]="faBitbucket" class="icon"></fa-icon>
             <small> &nbsp;Buckets</small></a></li>
           <li><a [routerLink]="['/dashboard/administration/filesOrFolders']" routerLinkActive="active">
-            <fa-icon [icon]="['fas', 'file-archive']" class="icon"></fa-icon>
+            <fa-icon [icon]="faFileArchive" class="icon"></fa-icon>
             <small> &nbsp;Files & Folders</small></a></li>
         </ul>
       </li>
       <li *ngIf="isLoggedIn">
         <a [routerLink]="['explorer']" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}">
-          <fa-icon [icon]="['fab', 'wpexplorer']" class="icon"></fa-icon> &nbsp;File Explorer</a>
+          <fa-icon [icon]="faWpexplorer" class="icon"></fa-icon> &nbsp;File Explorer</a>
       </li>
       <li *ngIf="isLoggedIn">
         <a [routerLinkActiveOptions]="{exact:true}" [routerLink]="['relationships']" routerLinkActive="active">
-          <fa-icon [icon]="['fas', 'project-diagram']" class="icon"></fa-icon> &nbsp;Relationships</a>
+          <fa-icon [icon]="faProjectDiagram" class="icon"></fa-icon> &nbsp;Relationships</a>
       </li>
     </ul>
 

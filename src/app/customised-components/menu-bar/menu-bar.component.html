@@ -11,7 +11,7 @@
                      class="form-control mr-sm-2 search-field"
                      name="bucketFilter" placeholder="Bucket" type="search">
               <button (click)="searchBucket()" class="pointer" color="warn" mat-mini-fab type="submit">
-                <fa-icon [icon]="['fas', 'search']"></fa-icon>
+                <fa-icon [icon]="faSearch"></fa-icon>
               </button>
             </form>
           </div>
@@ -24,7 +24,7 @@
             </select>
             <div class="pl-2">
               <button (click)="searchBucket()" class="pointer" color="warn" mat-mini-fab type="submit">
-                <fa-icon [icon]="['fas', 'search']"></fa-icon>
+                <fa-icon [icon]="faSearch"></fa-icon>
               </button>
             </div>
           </div>
@@ -39,11 +39,11 @@
         <div class="col-1.5 m-auto p-2 ">
           <button (click)="login()" *ngIf="!isLoggedIn" class="float-right" color="warn" mat-raised-button>
             Login &nbsp;
-            <fa-icon [icon]="['fas', 'sign-in-alt']"></fa-icon>
+            <fa-icon [icon]="faSignInAlt"></fa-icon>
           </button>
           <button (click)="logout()" *ngIf="isLoggedIn" class="float-right" color="warn" mat-raised-button>
             Logout &nbsp;
-            <fa-icon [icon]="['fas', 'sign-out-alt']"></fa-icon>
+            <fa-icon [icon]="faSignOutAlt"></fa-icon>
           </button>
         </div>
 

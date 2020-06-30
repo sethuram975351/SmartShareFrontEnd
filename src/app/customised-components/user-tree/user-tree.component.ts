@@ -48,13 +48,13 @@ export class UserTreeComponent implements OnChanges {
       const root = d3.hierarchy(data);
       const links = root.links();
       const nodes = root.descendants();
+
       // @ts-ignore
-      const simulation = d3.forceSimulation(nodes)
-        .force('link', d3.forceLink(links)
-          // .id(d => d.id)
-          .distance(10)
-          .strength(0.8)
-        )
+      const simulation = d3.forceSimulation(nodes).force('link', d3.forceLink(links)
+        // .id(d => d.id)
+        .distance(10)
+        .strength(0.8)
+      )
         .force('charge', d3.forceManyBody().strength(-45))
         .force('center', d3.forceCenter());
 

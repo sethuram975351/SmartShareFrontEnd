@@ -5,6 +5,9 @@ import {Auth0ServiceService} from '../../authentication/auth0/auth0-service.serv
 import {User} from '../../smart-share/domain-models/User';
 import {FileServerService} from '../../smart-share/service/file-server.service';
 import {Subject} from 'rxjs';
+import {faSignInAlt} from '@fortawesome/free-solid-svg-icons/faSignInAlt';
+import {faSignOutAlt} from '@fortawesome/free-solid-svg-icons/faSignOutAlt';
+import {faSearch} from '@fortawesome/free-solid-svg-icons/faSearch';
 
 
 @Component({
@@ -14,6 +17,9 @@ import {Subject} from 'rxjs';
 })
 export class MenuBarComponent implements OnInit {
 
+  faSignInAlt = faSignInAlt;
+  faSignOutAlt = faSignOutAlt;
+  faSearch = faSearch;
   user: User = null;
   bucketFilter: string;
   listOfBuckets;

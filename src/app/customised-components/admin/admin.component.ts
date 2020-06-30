@@ -1,9 +1,15 @@
 import {Component, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChanges, ViewChild} from '@angular/core';
-import {MatCheckboxChange, MatPaginator, MatSort, MatTableDataSource} from '@angular/material';
 import {SelectionModel} from '@angular/cdk/collections';
 import {ActivatedRoute, UrlSegment} from '@angular/router';
 import {Request} from '../../smart-share/domain-models/Request';
 import {ToastrService} from 'ngx-toastr';
+import {faChevronDown, faExclamation, faTenge, faTimes, faTrashAlt} from '@fortawesome/free-solid-svg-icons';
+import {MatTableDataSource} from '@angular/material/table';
+import {MatPaginator} from '@angular/material/paginator';
+import {MatSort} from '@angular/material/sort';
+import {MatCheckboxChange} from '@angular/material/checkbox';
+import {faCheck} from '@fortawesome/free-solid-svg-icons/faCheck';
+import {faChevronRight} from '@fortawesome/free-solid-svg-icons/faChevronRight';
 
 
 export class Group {
@@ -25,6 +31,14 @@ export class Group {
 })
 export class AdminComponent implements OnInit, OnChanges {
 
+  // icons
+  faCheck = faCheck;
+  faTimes = faTimes;
+  faExclamation = faExclamation;
+  faTenge = faTenge;
+  faChevronDown = faChevronDown;
+  faChevronRight = faChevronRight;
+  faTrashAlt = faTrashAlt;
 
   unfilteredData;
   selection = new SelectionModel<any>(true, []);

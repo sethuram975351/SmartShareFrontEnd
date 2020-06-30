@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {AdminServerService} from '../service/admin-server.service';
 import {UsersMetadata} from '../domain-models/UsersMetadata';
+import {faUserEdit} from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-users-list',
@@ -9,6 +10,7 @@ import {UsersMetadata} from '../domain-models/UsersMetadata';
 })
 export class UsersListComponent implements OnInit {
 
+  faUserEdit = faUserEdit;
   users: UsersMetadata;
   // users = [
   //  {

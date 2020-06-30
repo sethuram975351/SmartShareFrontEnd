@@ -3,6 +3,7 @@ import {Auth0ServiceService} from '../../authentication/auth0/auth0-service.serv
 import {AdminServerService} from '../service/admin-server.service';
 import {ToastrService} from 'ngx-toastr';
 import {Router} from '@angular/router';
+import {faUser, faUserSecret} from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-user',
@@ -11,6 +12,8 @@ import {Router} from '@angular/router';
 })
 export class UserComponent implements OnInit {
 
+  faUser = faUser;
+  faUserSecret = faUserSecret;
   private currentUser;
   private isAdmin;
   @Input() user: any;

@@ -3,15 +3,12 @@ import {CommonModule} from '@angular/common';
 import {RouterModule} from '@angular/router';
 import {FormsModule} from '@angular/forms';
 import {FontAwesomeModule} from '@fortawesome/angular-fontawesome';
-import {library} from '@fortawesome/fontawesome-svg-core';
-import {faAt, faCheck, faKey, fas, faSignInAlt, faSignOutAlt, faUser} from '@fortawesome/free-solid-svg-icons';
-import {faGithub} from '@fortawesome/free-brands-svg-icons';
 import {HttpClientModule} from '@angular/common/http';
 import {ToastrModule} from 'ngx-toastr';
 import {Auth0Component} from './auth0/auth0.component';
-import {MatButtonModule} from '@angular/material';
 import {SigninRedirectCallbackComponent} from './auth0/signin-redirect-callback/signin-redirect-callback.component';
 import {SignoutRedirectCallbackComponent} from './auth0/signout-redirect-callback/signout-redirect-callback.component';
+import {MatButtonModule} from '@angular/material/button';
 
 
 @NgModule({
@@ -36,9 +33,10 @@ import {SignoutRedirectCallbackComponent} from './auth0/signout-redirect-callbac
   ]
 })
 export class AuthenticationModule {
-  constructor() {
-    library.add(fas);
-    library.add(faUser, faKey, faAt, faCheck, faSignInAlt, faSignOutAlt);
-    library.add(faGithub);
-  }
+  // constructor(library: FaIconLibrary) {
+  //   library.addIconPacks(fas);
+  //   library.addIcons( faKey, faAt, faCheck, faSignInAlt, faSignOutAlt);
+  //   library.addIcons(faGithub);
+  //   library.addIcons(faUser);
+  // }
 }

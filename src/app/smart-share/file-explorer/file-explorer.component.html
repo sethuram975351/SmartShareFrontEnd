@@ -85,7 +85,7 @@
                     <div *ngIf="writeChecked" class="col-3">
                       <button (click)="openDialog()" class="custom-button create-button" mat-raised-button
                               title="create folder">
-                        <fa-icon [icon]="['fas', 'folder-plus']"></fa-icon>
+                        <fa-icon [icon]="faFolderPlus"></fa-icon>
                         create
                       </button>
                     </div>
@@ -93,7 +93,7 @@
                       <button (click)='downloadFileFolder()' class="custom-button download-button" mat-raised-button
                               title="download file or folder">
                         <small>
-                          <fa-icon [icon]="['fas', 'cloud-download-alt']" class="icon"></fa-icon>
+                          <fa-icon [icon]="faCloudDownloadAlt" class="icon"></fa-icon>
                           Download
                         </small>
                       </button>
@@ -101,14 +101,14 @@
                     <div *ngIf="writeChecked" class="col-3">
                       <button (click)="openUploadPanel()" class="custom-button upload-button" mat-raised-button
                               title="upload file or folder">
-                        <fa-icon [icon]="['fas', 'cloud-upload-alt']" class="icon"></fa-icon>
+                        <fa-icon [icon]="faCloudUploadAlt" class="icon"></fa-icon>
                         Upload
                       </button>
                     </div>
                     <div *ngIf="deleteChecked" class="col-3">
                       <button (click)="deleteFileFolder()" class="custom-button delete-button" mat-raised-button
                               title="delete file or folder">
-                        <fa-icon [icon]="['fas', 'trash-alt']" class="icon"></fa-icon>
+                        <fa-icon [icon]="faTrashAlt" class="icon"></fa-icon>
                         Delete
                       </button>
                     </div>
@@ -143,7 +143,7 @@
                                     <div class="container-fluid">
                                       <div class="row">
                                         <div class="col-1">
-                                          <fa-icon [icon]="['fas', 'file-alt']"></fa-icon>
+                                          <fa-icon [icon]="faFileAlt"></fa-icon>
                                         </div>
                                         <div class="col">
                                           <small>&nbsp;{{file.name}}</small>
@@ -152,7 +152,7 @@
 
                                         <div class="col-1">
                                           <fa-icon (click)="removeFileFromSelectedFiles(file.name)"
-                                                   [icon]="['fas', 'times']"
+                                                   [icon]="faTimes"
                                                    class="close"></fa-icon>
                                         </div>
                                       </div>

@@ -53,12 +53,11 @@ export class OwnerTreeComponent implements OnChanges {
       const nodes = root.descendants();
 
       // @ts-ignore
-      const simulation = d3.forceSimulation(nodes)
-        .force('link', d3.forceLink(links)
-          // .id(d => d.id)
-          .distance(10)
-          .strength(0.8)
-        )
+      const simulation = d3.forceSimulation(nodes).force('link', d3.forceLink(links)
+        // .id(d => d.id)
+        .distance(10)
+        .strength(0.8)
+      )
         .force('charge', d3.forceManyBody().strength(-105))
         .force('center', d3.forceCenter());
 

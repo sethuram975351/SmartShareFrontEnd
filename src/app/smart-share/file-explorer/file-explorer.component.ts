@@ -11,9 +11,11 @@ import {DeleteObjectsRequest} from '../domain-models/DeleteObjectsRequest';
 import {ObjectAccessRequest} from '../domain-models/ObjectAccessRequest';
 import {AdminServerService} from '../service/admin-server.service';
 import {ToastrService} from 'ngx-toastr';
-import {MatDialog} from '@angular/material';
+
 import {CreateBucketDialogComponent} from './create-bucket-dialog/create-bucket-dialog.component';
 import {NgxSpinnerService} from 'ngx-spinner';
+import {MatDialog} from '@angular/material/dialog';
+import {faCloudDownloadAlt, faCloudUploadAlt, faFileAlt, faFolderPlus, faTimes, faTrashAlt} from '@fortawesome/free-solid-svg-icons';
 
 
 export interface DialogData {
@@ -28,6 +30,12 @@ export interface DialogData {
 })
 export class FileExplorerComponent implements OnInit {
 
+  faFolderPlus = faFolderPlus;
+  faCloudDownloadAlt = faCloudDownloadAlt;
+  faCloudUploadAlt = faCloudUploadAlt;
+  faTrashAlt = faTrashAlt;
+  faFileAlt = faFileAlt;
+  faTimes = faTimes;
 
   bucketObjects;
   private selectedBucket: string;

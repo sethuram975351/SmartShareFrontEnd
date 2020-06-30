@@ -1,5 +1,4 @@
 import {Component, OnInit} from '@angular/core';
-import {MatButtonToggleChange, MatDialog} from '@angular/material';
 import {DialogBoxComponent} from '../../customised-components/dialog-box/dialog-box.component';
 import {FileServerService} from '../service/file-server.service';
 import {ActivatedRoute} from '@angular/router';
@@ -7,6 +6,9 @@ import {Auth0ServiceService} from '../../authentication/auth0/auth0-service.serv
 import {Bucket} from '../domain-models/bucket';
 import {ToastrService} from 'ngx-toastr';
 import {NgxSpinnerService} from 'ngx-spinner';
+import {MatDialog} from '@angular/material/dialog';
+import {MatButtonToggleChange} from '@angular/material/button-toggle';
+import {faPlus, faUserSecret, faUserTie} from '@fortawesome/free-solid-svg-icons';
 
 
 @Component({
@@ -15,6 +17,10 @@ import {NgxSpinnerService} from 'ngx-spinner';
   styleUrls: ['./bucket-list.component.less']
 })
 export class BucketListComponent implements OnInit {
+
+  faUserSecret = faUserSecret;
+  faUserTie = faUserTie;
+  faPlus = faPlus;
   buckets;
   filteredBuckets;
   perspectiveButton;

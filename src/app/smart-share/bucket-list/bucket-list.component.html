@@ -7,10 +7,10 @@
 
       <mat-button-toggle-group (change)="changePerspective($event)" [value]="perspective" class="mt-2" color="warn">
         <mat-button-toggle matTooltip="Admin" value="admin">
-          <fa-icon [icon]="['fas', 'user-secret']" class="icon"></fa-icon>
+          <fa-icon [icon]="faUserSecret" class="icon"></fa-icon>
         </mat-button-toggle>
         <mat-button-toggle matTooltip="User" value="user">
-          <fa-icon [icon]="['fas', 'user-tie']" class="icon"></fa-icon>
+          <fa-icon [icon]="faUserTie" class="icon"></fa-icon>
         </mat-button-toggle>
       </mat-button-toggle-group>
     </div>
@@ -23,7 +23,7 @@
   <div *ngIf="this.perspective == 'admin'" class="row">
     <div class="col">
       <button class="mine" mat-fab color="primary" (click)="openDialog()" matTooltip="Add bucket">
-        <fa-icon [icon]="['fas', 'plus']"></fa-icon>
+        <fa-icon [icon]="faPlus"></fa-icon>
       </button>
     </div>
   </div>

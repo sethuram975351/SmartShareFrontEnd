@@ -3,28 +3,6 @@ import {CommonModule} from '@angular/common';
 import {CustomisedComponentsModule} from '../customised-components/customised-components.module';
 import {RouterModule} from '@angular/router';
 import {BucketListComponent} from './bucket-list/bucket-list.component';
-import {library} from '@fortawesome/fontawesome-svg-core';
-import {
-  faBurn,
-  faCloudDownloadAlt,
-  faCloudUploadAlt,
-  faEye,
-  faFileAlt,
-  faFileArchive,
-  faFolderPlus,
-  faPlus,
-  fas,
-  faSearch,
-  faTimes,
-  faTrashAlt,
-  faUser,
-  faUserCog,
-  faUserEdit,
-  faUsers,
-  faUserSecret,
-  faUserTie
-} from '@fortawesome/free-solid-svg-icons';
-import {faBitbucket, faWpexplorer} from '@fortawesome/free-brands-svg-icons';
 import {BucketComponent} from './bucket/bucket.component';
 import {DashBoardComponent} from './dash-board/dash-board.component';
 import {AddUsersComponent} from './add-users/add-users.component';
@@ -37,21 +15,6 @@ import {FileAndFolderManagementComponent} from './administration/file-and-folder
 import {FileExplorerComponent} from './file-explorer/file-explorer.component';
 import {DialogBoxComponent} from '../customised-components/dialog-box/dialog-box.component';
 import {ToastrModule} from 'ngx-toastr';
-import {
-  MatButtonToggleModule,
-  MatCheckboxModule,
-  MatDialogModule,
-  MatDividerModule,
-  MatExpansionModule,
-  MatIconModule,
-  MatListModule,
-  MatRadioModule,
-  MatRippleModule,
-  MatSelectModule,
-  MatSlideToggleModule,
-  MatTabsModule,
-  MatTooltipModule
-} from '@angular/material';
 import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
 import {AuthInterceptorService} from '../authentication/auth-interceptor.service';
 import {RelationshipComponent} from './relationship/relationship.component';
@@ -61,6 +24,19 @@ import {NgxSpinnerModule} from 'ngx-spinner';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {AuthGuardService} from '../authentication/auth-guard.service';
 import {CreateBucketDialogComponent} from './file-explorer/create-bucket-dialog/create-bucket-dialog.component';
+import {MatRadioModule} from '@angular/material/radio';
+import {MatButtonToggleModule} from '@angular/material/button-toggle';
+import {MatSlideToggleModule} from '@angular/material/slide-toggle';
+import {MatSelectModule} from '@angular/material/select';
+import {MatCheckboxModule} from '@angular/material/checkbox';
+import {MatIconModule} from '@angular/material/icon';
+import {MatDialogModule} from '@angular/material/dialog';
+import {MatListModule} from '@angular/material/list';
+import {MatDividerModule} from '@angular/material/divider';
+import {MatTooltipModule} from '@angular/material/tooltip';
+import {MatTabsModule} from '@angular/material/tabs';
+import {MatExpansionModule} from '@angular/material/expansion';
+import {MatRippleModule} from '@angular/material/core';
 
 
 @NgModule({
@@ -147,11 +123,10 @@ import {CreateBucketDialogComponent} from './file-explorer/create-bucket-dialog/
   entryComponents: [DialogBoxComponent, CreateBucketDialogComponent]
 })
 export class SmartShareModule {
-  constructor() {
-    library.add(fas);
-    library.add(faSearch, faBurn, faBitbucket, faUsers, faTrashAlt, faTimes,
-      faPlus, faUser, faUserCog, faFileArchive, faEye, faWpexplorer, faFolderPlus, faCloudDownloadAlt, faCloudUploadAlt, faFileAlt,
-      faUserTie, faUserSecret, faUserEdit);
-  }
+  // constructor(library: FaIconLibrary) {
+  //   library.addIconPacks(fas);
+  //   library.addIcons(faSearch, faBurn, faBitbucket, faUsers, faTrashAlt, faTimes,
+  //     faPlus, faUser, faUserCog, faFileArchive, faEye, faWpexplorer, faFolderPlus, faCloudDownloadAlt, faCloudUploadAlt, faFileAlt,
+  //     faUserTie, faUserSecret, faUserEdit);
+  // }
 }
-

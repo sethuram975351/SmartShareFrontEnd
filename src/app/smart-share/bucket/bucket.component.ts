@@ -5,6 +5,7 @@ import {BucketAccessRequest} from '../domain-models/BucketAccessRequest';
 import {Auth0ServiceService} from '../../authentication/auth0/auth0-service.service';
 import {AdminServerService} from '../service/admin-server.service';
 import {Router} from '@angular/router';
+import {faEye, faTrashAlt, faUsers} from '@fortawesome/free-solid-svg-icons';
 
 
 @Component({
@@ -20,6 +21,10 @@ export class BucketComponent implements OnInit, OnChanges {
               private adminService: AdminServerService,
               private router: Router) {
   }
+
+  faUsers = faUsers;
+  faTrashAlt = faTrashAlt;
+  faEye = faEye;
 
   @Input() bucket: any;
   @Input() perspective: string;

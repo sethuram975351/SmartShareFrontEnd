@@ -2,9 +2,10 @@ import {Component, OnInit} from '@angular/core';
 import {AdminServerService} from '../../service/admin-server.service';
 import {Request} from '../../domain-models/Request';
 import {NavigationEnd, Router} from '@angular/router';
-import {MatButtonToggleChange} from '@angular/material';
 import {Auth0ServiceService} from '../../../authentication/auth0/auth0-service.service';
 import {ToastrService} from 'ngx-toastr';
+import {MatButtonToggleChange} from '@angular/material/button-toggle';
+import {faUserSecret, faUserTie} from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-file-and-folder-management',
@@ -12,6 +13,10 @@ import {ToastrService} from 'ngx-toastr';
   styleUrls: ['./file-and-folder-management.component.less']
 })
 export class FileAndFolderManagementComponent implements OnInit {
+
+  faUserSecret = faUserSecret;
+  faUserTie = faUserTie;
+
   metadata: any;
   perspective: any;
   perspectiveButton: any;
