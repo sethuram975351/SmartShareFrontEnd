@@ -1,12 +1,30 @@
-node {
+pipeline {
+    agent any
+    stages {
 
-    stage 'smartshare-frontend-checkout'
-    checkout scm
-    //git 'https://github.com/sethuram975351/SmartShareFrontEnd.git'
+        stage('Checkout') {
+            steps {
+                checkout scm
+            }
+        }
 
-    stage 'build image'
-    sh 'docker image build -t frontend:latest .'
+        stage('Build and push Docker Image') {
+            steps {
+                script {
+                    docker.withRegistry("https://registry.hub.docker.com", "dockerhub") {
+                        def image = docker.build("sethuram975351/frontend:latest")
+                        image.push()
+                    }
+                }
+            }
+        }
+        stage('Build Kubernetes Deployment') {
+            steps {
+                dir("/Users/sethuram/Desktop/terraform/k8s") {
+                    sh 'kubectl apply -f frontend-deployment.yaml'
+                }
 
-    stage 'Run container'
-    sh 'docker run -d --env GATEWAY_URL="http://localhost:8081" -e FRONTEND_PORT="4200" -p 4200:80 frontend:latest'
+            }
+        }
+    }
 }
